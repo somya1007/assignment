@@ -1,0 +1,87 @@
+<form>
+  <div class="ngn-tabs-save-btn">
+    <button
+      class="btn ngn-link-btn"
+      type="button"
+      name="save_draft"
+    >
+      Save as Draft
+    </button>
+    <button
+      class="btn ngn-primary-btn"
+      name="save_next"
+    >
+      Save & Next
+    </button>
+  </div>
+
+  <div
+    class="ngn-input-effect w60Per my-3"
+  >
+    <input
+      type="text"
+      class="input ngn-input-txt"
+      type="text"
+      id="name"
+      required
+      maxLength="255"
+      placeholder="Add campaign title here.."
+      autocomplete="off"
+    />
+    <label class="input ngn-input-txt-label" for="name">
+      <span class="ngn-input-span"
+        >Campaign Name <span class="star">*</span>
+      </span>
+    </label>
+  </div>
+  <div
+    class="ngn-input-effect w60Per my-3"
+  >
+    <select class="input ngn-input-txt ngn-select-txt">
+      <option>Select a website</option>
+    </select>
+  </div>
+
+  <div class="ngn-input-effect">
+    <span class="custom-control custom-checkbox mr-sm-2">
+      <input
+        type="checkbox"
+        class="custom-control-input"
+        id="checkAdvanceOptions"
+      />
+      <label
+        class="custom-control-label ngn-campagin-remember align-middle"
+        for="checkAdvanceOptions"
+        >Advanced
+        <i class="ngn-grey"
+          ><small>(Conversion Tracking and External Tracking)</small></i
+        ></label
+      >
+    </span>
+  </div>
+  <div
+    class="ngn-advance-details"
+    id="ngn-advance-setup-details"
+  >
+    <ngn-conversion-tracking></ngn-conversion-tracking>
+    <hr />
+  </div>
+
+  <div class="ngn-save-btn-outer">
+    <div class="ngn-save-btn text-right">
+      <button
+        class="btn ngn-link-btn"
+        name="save_as_draft"
+        type="button"
+      >
+        Save as Draft
+      </button>
+      <button
+        class="btn ngn-primary-btn"
+        name="save_next"
+      >
+        Save &amp; Next
+      </button>
+    </div>
+  </div>
+</form>
