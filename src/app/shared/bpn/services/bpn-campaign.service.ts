@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 // import { ApiService } from '../../../../../services';
 import { ApiService } from 'src/app/services';
 import { recursiveDeepCopy } from 'src/app/libs/utils';
+import { HttpClient } from '@angular/common/http';
 
 import { BpnServiceConstants } from './bpn-service-constants';
 import {
@@ -24,13 +25,31 @@ export class BpnCampaignService {
 
   private _selectedTabIndex = new BehaviorSubject<number>(0);
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private http: HttpClient) { }
+  readonly rootURL = "http://localhost:5000";
+  // campaignName:string;
+  input: string = '';
+  operatorValue: string = '';
+  payloadName: string = '';
+  value: string = '';
+
+
+
+  getWebsite() {
+
+    return this.http.get(this.rootURL + '/websites');
+  }
+
+  getActivities() {
+
+    return this.http.get(this.rootURL + '/activities');
+  }
 
   public getSelectedTabIndex() {
     return this._selectedTabIndex;
   }
 
-   tabReset() {
+  tabReset() {
     this.campaignDetails = recursiveDeepCopy(this.savedCampaignDetails);
   }
 
@@ -224,7 +243,7 @@ export class BpnCampaignService {
         );
         if (this.campaignDetails.contents.length - 1 === +index &&
           this.campaignDetails.split_type === 'split') {
-            total = remainningTotal;
+          total = remainningTotal;
         }
         if (total === 0 && remainningTotal > 0) {
           total = 1;

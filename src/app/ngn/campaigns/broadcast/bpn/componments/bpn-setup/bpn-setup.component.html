@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="setupForm">
   <div class="ngn-tabs-save-btn">
     <button
       class="btn ngn-link-btn"
@@ -23,11 +23,23 @@
       class="input ngn-input-txt"
       type="text"
       id="name"
+      formControlName="campaign_name"
+      (input)="onInput($event)"
       required
-      maxLength="255"
+      maxLength="100"
       placeholder="Add campaign title here.."
       autocomplete="off"
     />
+
+    <small class="validation-text"
+    *ngIf="setupForm.controls.campaign_name.touched && setupForm.controls.campaign_name.errors?.required">
+      Campaign Name is required.
+  </small>
+
+  <small class="validation-text"
+    *ngIf="setupForm.controls.campaign_name.touched && setupForm.controls.campaign_name.errors?.pattern">
+      Only a-zA-Z0-9-_&@:? characters are allowed.
+  </small>
     <label class="input ngn-input-txt-label" for="name">
       <span class="ngn-input-span"
         >Campaign Name <span class="star">*</span>
@@ -37,9 +49,15 @@
   <div
     class="ngn-input-effect w60Per my-3"
   >
-    <select class="input ngn-input-txt ngn-select-txt">
-      <option>Select a website</option>
+    <select class="input ngn-input-txt ngn-select-txt" formControlName="websites" placeholder="select a website">
+      <option *ngFor="let w of websitelist" value="{{w.siteurl}}">{{w.siteurl}}</option>
     </select>
+
+    <label class="input ngn-input-txt-label" for="name">
+      <span class="ngn-input-span"
+        >Website
+      </span>
+    </label>
   </div>
 
   <div class="ngn-input-effect">
@@ -47,6 +65,7 @@
       <input
         type="checkbox"
         class="custom-control-input"
+        (change)="eventCheck($event)"
         id="checkAdvanceOptions"
       />
       <label
@@ -54,7 +73,7 @@
         for="checkAdvanceOptions"
         >Advanced
         <i class="ngn-grey"
-          ><small>(Conversion Tracking and External Tracking)</small></i
+          ><small>(Conversion Tracking)</small></i
         ></label
       >
     </span>
@@ -62,6 +81,7 @@
   <div
     class="ngn-advance-details"
     id="ngn-advance-setup-details"
+   *ngIf="isChecked"
   >
     <ngn-conversion-tracking></ngn-conversion-tracking>
     <hr />

@@ -66,6 +66,7 @@
             <span class="mr-2 ngn-light-grey ngn-accordion-icon">
               <i class="ngn-icon ngn-icon-disc mr-2"></i>
             </span>
+           {{value}}
           </a>
         </accordion-group>
         <accordion-group>
@@ -89,9 +90,9 @@
               </li>
 
               <li>
-                Payload -
-                <span class="ngn-light-grey">condition</span>
-                Value
+                {{payloadName}}
+                <span class="ngn-light-grey">{{operatorValue}}</span>
+                {{payloadValue}}
               </li>
             </ul>
           </div>

@@ -6,14 +6,21 @@
       {
         "id": 1567,
         "siteid": "875d83b96730f860717517a90964b9ef",
-        "siteurl": "https:\/\/demo1.netcoresmartech.com\/faiyaz",
+        "siteurl": "https:\/\/example.com",
         "type": "https",
         "server_type": "fcm"
       },
       {
         "id": 1550,
         "siteid": "47c6ff5d353085980bfd6b6338be1375",
-        "siteurl": "https:\/\/prdev.netcore.co.in\/faiyaz\/admin\/",
+        "siteurl": "https:\/\/examplewebsite2.com",
+        "type": "https",
+        "server_type": "fcm"
+      },
+      {
+        "id": 1552,
+        "siteid": "47c6ff5d353085980bfd6b6338be1373",
+        "siteurl": "https:\/\/examplewebsite3.com",
         "type": "https",
         "server_type": "fcm"
       }

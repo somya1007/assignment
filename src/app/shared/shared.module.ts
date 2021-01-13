@@ -37,7 +37,7 @@ const MODULES = [
     ...COMPONENTS,
   ],
   providers: [
-    BpnCampaignService,
+    BpnCampaignService
   ]
 })
 export class SharedModule { }
